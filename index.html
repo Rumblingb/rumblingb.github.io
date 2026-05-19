@@ -1,118 +1,326 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AgentPay — Autonomous Agent Infrastructure</title>
-  <meta name="description" content="AgentPay provides autonomous agent infrastructure, MCP servers, and AI agent tooling. Explore our MCP server directory and developer tools.">
-  <meta name="keywords" content="AgentPay, MCP servers, AI agents, agent infrastructure">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-      color: #e0e0e0;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-    }
-    .container {
-      max-width: 800px;
-      text-align: center;
-    }
-    h1 {
-      font-size: 3.5rem;
-      font-weight: 700;
-      background: linear-gradient(90deg, #00d2ff, #7b2ff7);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 0.5rem;
-    }
-    .subtitle {
-      font-size: 1.2rem;
-      color: #a0a0c0;
-      margin-bottom: 2rem;
-    }
-    .status {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 12px;
-      padding: 2rem;
-      margin: 2rem 0;
-    }
-    .status h2 {
-      color: #00d2ff;
-      margin-bottom: 1rem;
-    }
-    .status p {
-      line-height: 1.6;
-      color: #b0b0d0;
-    }
-    .badge {
-      display: inline-block;
-      background: #00d2ff;
-      color: #0f0c29;
-      padding: 0.3rem 1rem;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-top: 0.5rem;
-    }
-    .links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-      margin-top: 2rem;
-    }
-    .links a {
-      color: #e0e0e0;
-      text-decoration: none;
-      padding: 0.7rem 1.5rem;
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 8px;
-      transition: all 0.3s;
-      font-size: 0.95rem;
-    }
-    .links a:hover {
-      background: rgba(255,255,255,0.1);
-      border-color: #7b2ff7;
-      transform: translateY(-2px);
-    }
-    footer {
-      margin-top: 3rem;
-      color: #606080;
-      font-size: 0.85rem;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgentPay Labs — AI Agent Infrastructure & MCP Servers</title>
+<meta name="description" content="AgentPay Labs builds governed AI agent infrastructure. 25+ MCP servers, agent passport, payment rails, and developer tools for the autonomous agent economy.">
+<meta name="keywords" content="AI agents, MCP servers, agent infrastructure, AgentPay, Model Context Protocol, autonomous agents, agent economy">
+<meta property="og:title" content="AgentPay Labs — AI Agent Infrastructure">
+<meta property="og:description" content="Governed infrastructure for autonomous AI agents. MCP servers, payment rails, identity, memory, and more.">
+<meta property="og:url" content="https://rumblingb.github.io/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://rumblingb.github.io/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"AgentPay Labs","url":"https://rumblingb.github.io","description":"AI agent infrastructure — MCP servers, payment rails, and developer tools for the autonomous agent economy.","sameAs":["https://github.com/Rumblingb"]}</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#070710;--surface:#0f0f1e;--border:rgba(255,255,255,.07);--accent:#7c3aed;--cyan:#06b6d4;--green:#22c55e;--amber:#f59e0b;--text:#e2e8f0;--muted:#94a3b8}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(7,7,16,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:.9rem 2rem;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-weight:800;font-size:1.1rem;background:linear-gradient(135deg,var(--accent),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-links{display:flex;gap:1.5rem;align-items:center}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.9rem;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{background:linear-gradient(135deg,var(--accent),var(--cyan));color:#fff!important;padding:.45rem 1.1rem;border-radius:6px;font-weight:600!important;font-size:.85rem!important}
+
+/* HERO */
+.hero{text-align:center;padding:7rem 2rem 5rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(124,58,237,.15) 0%,transparent 70%);pointer-events:none}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:.5rem;background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.25);color:#a78bfa;padding:.3rem 1rem;border-radius:99px;font-size:.8rem;font-weight:600;margin-bottom:1.5rem;text-transform:uppercase;letter-spacing:.05em}
+.hero h1{font-size:clamp(2.4rem,6vw,4rem);font-weight:800;line-height:1.1;margin-bottom:1.25rem;letter-spacing:-.02em}
+.hero h1 span{background:linear-gradient(135deg,var(--accent),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:1.15rem;color:var(--muted);max-width:620px;margin:0 auto 2.5rem;line-height:1.7}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.8rem;border-radius:8px;text-decoration:none;font-weight:600;font-size:.95rem;transition:all .2s;cursor:pointer;border:none}
+.btn-primary{background:linear-gradient(135deg,var(--accent),var(--cyan));color:#fff;box-shadow:0 4px 20px rgba(124,58,237,.3)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(124,58,237,.4)}
+.btn-secondary{background:rgba(255,255,255,.06);color:var(--text);border:1px solid var(--border)}
+.btn-secondary:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.15)}
+.btn-game{background:linear-gradient(135deg,#ff2d95,#7c3aed);color:#fff;box-shadow:0 4px 20px rgba(255,45,149,.3);font-family:'Courier New',monospace}
+.btn-game:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(255,45,149,.4)}
+
+/* STATS */
+.stats{display:flex;gap:2px;justify-content:center;flex-wrap:wrap;margin:4rem auto;max-width:900px;padding:0 2rem}
+.stat{flex:1;min-width:140px;text-align:center;padding:1.5rem 1rem;background:var(--surface);border:1px solid var(--border)}
+.stat:first-child{border-radius:12px 0 0 12px}
+.stat:last-child{border-radius:0 12px 12px 0}
+.stat .n{font-size:2.2rem;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat .l{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-top:.25rem}
+@media(max-width:600px){.stat:first-child,.stat:last-child{border-radius:0}.stats{gap:1px}}
+
+/* SECTION */
+.section{padding:4rem 2rem;max-width:1200px;margin:0 auto}
+.section-title{text-align:center;margin-bottom:3rem}
+.section-title h2{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;margin-bottom:.5rem}
+.section-title p{color:var(--muted);font-size:1rem;max-width:560px;margin:0 auto}
+
+/* PRODUCTS GRID */
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem}
+.product-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;display:flex;flex-direction:column;transition:all .25s;text-decoration:none;color:inherit}
+.product-card:hover{border-color:rgba(124,58,237,.4);background:rgba(124,58,237,.05);transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.3)}
+.product-card .badge{display:inline-block;font-size:.65rem;font-weight:700;padding:.15rem .55rem;border-radius:4px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.6rem;width:fit-content}
+.b-mcp{background:rgba(6,182,212,.12);color:#22d3ee}
+.b-saas{background:rgba(34,197,94,.12);color:#4ade80}
+.b-service{background:rgba(245,158,11,.12);color:#fbbf24}
+.product-card h3{font-size:1rem;font-weight:700;margin-bottom:.4rem}
+.product-card p{font-size:.85rem;color:var(--muted);flex:1;line-height:1.55}
+.product-card .price{margin-top:.75rem;font-size:.8rem;color:var(--accent);font-weight:600}
+.product-card .card-footer{margin-top:1rem;display:flex;gap:.5rem}
+.card-btn{font-size:.78rem;padding:.3rem .8rem;border-radius:5px;text-decoration:none;font-weight:600;transition:all .2s}
+.card-btn-buy{background:linear-gradient(135deg,var(--accent),var(--cyan));color:#fff}
+.card-btn-buy:hover{opacity:.9}
+.card-btn-gh{background:rgba(255,255,255,.06);color:var(--text);border:1px solid var(--border)}
+.card-btn-gh:hover{background:rgba(255,255,255,.1)}
+
+/* HIGHWAY PROMO */
+.highway-promo{margin:2rem auto;max-width:900px;padding:0 2rem}
+.highway-card{background:linear-gradient(135deg,rgba(255,45,149,.08),rgba(124,58,237,.08));border:1px solid rgba(255,45,149,.2);border-radius:16px;padding:2.5rem;display:flex;align-items:center;gap:2rem;flex-wrap:wrap}
+.highway-card .hw-text h3{font-size:1.4rem;font-weight:800;margin-bottom:.4rem;font-family:'Courier New',monospace}
+.highway-card .hw-text h3 span{color:#ff2d95;text-shadow:0 0 20px rgba(255,45,149,.5)}
+.highway-card .hw-text p{color:var(--muted);font-size:.9rem;max-width:480px;line-height:1.6}
+.highway-card .hw-btns{display:flex;gap:.75rem;margin-top:1.25rem;flex-wrap:wrap}
+
+/* HOW IT WORKS */
+.steps{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.5rem;padding:0 2rem;max-width:900px;margin:0 auto}
+.step{text-align:center;padding:1.5rem}
+.step .icon{font-size:2rem;margin-bottom:.75rem}
+.step h4{font-size:.95rem;font-weight:700;margin-bottom:.4rem}
+.step p{font-size:.82rem;color:var(--muted);line-height:1.55}
+
+/* CATEGORIES */
+.cats{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin:2rem auto;max-width:900px;padding:0 2rem}
+.cat{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem 1.5rem;text-align:center;min-width:140px;text-decoration:none;color:inherit;transition:all .2s}
+.cat:hover{border-color:var(--accent);background:rgba(124,58,237,.06);transform:translateY(-2px)}
+.cat .ci{font-size:1.5rem;margin-bottom:.4rem}
+.cat .cn{font-size:.82rem;font-weight:600}
+.cat .cc{font-size:.7rem;color:var(--muted);margin-top:.15rem}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:2.5rem 2rem;text-align:center;color:var(--muted);font-size:.85rem;margin-top:4rem}
+footer .fl{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:1rem}
+footer a{color:var(--muted);text-decoration:none;transition:color .2s}
+footer a:hover{color:var(--text)}
+
+@media(max-width:768px){
+  nav{padding:.75rem 1rem}.nav-links{gap:1rem}
+  .hero{padding:5rem 1.5rem 3.5rem}.hero p{font-size:1rem}
+  .section{padding:3rem 1.5rem}.highway-card{padding:1.75rem}
+  .products-grid{grid-template-columns:1fr}
+}
+</style>
 </head>
 <body>
-  <div class="container">
-    <h1>AgentPay</h1>
-    <p class="subtitle">Autonomous Agent Infrastructure</p>
-    
-    <div class="status">
-      <h2>✓ System Online</h2>
-      <p>AgentPay's infrastructure is operational. Our MCP servers and agent tools are running.</p>
-      <p>If you encountered a 404 error, that issue has been resolved — DNS and Pages configuration have been restored.</p>
-      <div class="badge">Last deployed: May 18, 2026</div>
-    </div>
 
-    <div class="links">
-      <a href="https://agentpay.so/agent-hire-mcp">Agent Hire MCP</a>
-      <a href="https://agentpay.so/agent-api-page">Agent API</a>
-      <a href="https://agentpay.so/agent-memory-mcp">Agent Memory MCP</a>
-      <a href="https://agentpay.so/mcp-directory">MCP Directory</a>
-      <a href="https://github.com/Rumblingb">GitHub</a>
-    </div>
-
-    <footer>
-      AgentPay &copy; 2026 — Autonomous Agent Infrastructure
-    </footer>
+<nav>
+  <div class="nav-logo">AgentPay Labs</div>
+  <div class="nav-links">
+    <a href="#products">Products</a>
+    <a href="#how">How It Works</a>
+    <a href="https://github.com/Rumblingb">GitHub</a>
+    <a href="https://rumblingb.github.io/agentpay-highway/" class="nav-cta">⬡ Play the Game</a>
   </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-eyebrow">⬡ Governed Agent Economy</div>
+  <h1>Infrastructure for<br><span>Autonomous AI Agents</span></h1>
+  <p>MCP servers, payment rails, identity, memory, and audit tools — everything your agents need to operate in the real world.</p>
+  <div class="hero-btns">
+    <a href="#products" class="btn btn-primary">Explore Products →</a>
+    <a href="https://github.com/Rumblingb/agentpay-labs-hub" class="btn btn-secondary">View All 61 Tools</a>
+    <a href="https://rumblingb.github.io/agentpay-highway/" class="btn btn-game">⬡ Drive the Highway</a>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat"><div class="n">25+</div><div class="l">MCP Servers</div></div>
+  <div class="stat"><div class="n">61</div><div class="l">Total Products</div></div>
+  <div class="stat"><div class="n">$0</div><div class="l">Hosting Cost</div></div>
+  <div class="stat"><div class="n">100%</div><div class="l">Static + Fast</div></div>
+  <div class="stat"><div class="n">Free</div><div class="l">Tiers Available</div></div>
+</div>
+
+<section id="products" class="section">
+  <div class="section-title">
+    <h2>Featured Products</h2>
+    <p>Commercial-grade tools for the governed agent economy</p>
+  </div>
+  <div class="products-grid">
+
+    <a class="product-card" href="https://buy.stripe.com/28E3cxflRabW1jqgvx1oI0s" target="_blank">
+      <span class="badge b-saas">SaaS</span>
+      <h3>🛂 AgentPassport</h3>
+      <p>Governed payment middleware for AI agents — guardrails, scoped tokens, immutable audit trail. Built on Stripe.</p>
+      <div class="price">From $19/mo</div>
+      <div class="card-footer">
+        <a href="https://buy.stripe.com/28E3cxflRabW1jqgvx1oI0s" class="card-btn card-btn-buy" target="_blank">Get Started</a>
+        <a href="https://github.com/Rumblingb/agentpassport-api" class="card-btn card-btn-gh" target="_blank">GitHub</a>
+      </div>
+    </a>
+
+    <a class="product-card" href="https://buy.stripe.com/bJebJ37TpgAkd285QT1oI0q" target="_blank">
+      <span class="badge b-mcp">MCP Server</span>
+      <h3>⚡ AgentPay Pro</h3>
+      <p>Key vaulting, spending policies, and human approval workflows for AI agents via MCP protocol.</p>
+      <div class="price">$19/mo</div>
+      <div class="card-footer">
+        <a href="https://buy.stripe.com/bJebJ37TpgAkd285QT1oI0q" class="card-btn card-btn-buy" target="_blank">Subscribe</a>
+        <a href="https://github.com/Rumblingb" class="card-btn card-btn-gh" target="_blank">GitHub</a>
+      </div>
+    </a>
+
+    <a class="product-card" href="https://buy.stripe.com/dRm4gB7Tpck43ry9351oI0x" target="_blank">
+      <span class="badge b-mcp">MCP Server</span>
+      <h3>💰 Agent Cost Tracker</h3>
+      <p>Track AI agent token usage and API costs in real time. Set budget alerts across all your agents.</p>
+      <div class="price">$19/mo</div>
+      <div class="card-footer">
+        <a href="https://buy.stripe.com/dRm4gB7Tpck43ry9351oI0x" class="card-btn card-btn-buy" target="_blank">Subscribe</a>
+        <a href="https://github.com/Rumblingb" class="card-btn card-btn-gh" target="_blank">GitHub</a>
+      </div>
+    </a>
+
+    <a class="product-card" href="https://buy.stripe.com/cNifZj0qXesc6DKcfh1oI0y" target="_blank">
+      <span class="badge b-mcp">MCP Server</span>
+      <h3>🧠 Agent Memory MCP</h3>
+      <p>Persistent memory storage across agent conversations. Remember preferences, session state, and context.</p>
+      <div class="price">$19/mo</div>
+      <div class="card-footer">
+        <a href="https://buy.stripe.com/cNifZj0qXesc6DKcfh1oI0y" class="card-btn card-btn-buy" target="_blank">Subscribe</a>
+        <a href="https://github.com/Rumblingb" class="card-btn card-btn-gh" target="_blank">GitHub</a>
+      </div>
+    </a>
+
+    <a class="product-card" href="https://rumblingb.github.io/text-to-speech-mcp/" target="_blank">
+      <span class="badge b-mcp">MCP Server</span>
+      <h3>🎤 Text-to-Speech MCP</h3>
+      <p>Convert text to speech using 50+ voices via Microsoft Edge's free TTS engine. No API key required.</p>
+      <div class="price">Free + $19/mo Pro</div>
+      <div class="card-footer">
+        <a href="https://rumblingb.github.io/text-to-speech-mcp/" class="card-btn card-btn-buy" target="_blank">Get Started</a>
+        <a href="https://github.com/Rumblingb/text-to-speech-mcp" class="card-btn card-btn-gh" target="_blank">GitHub</a>
+      </div>
+    </a>
+
+    <a class="product-card" href="https://rumblingb.github.io/search-proxy-mcp/" target="_blank">
+      <span class="badge b-mcp">MCP Server</span>
+      <h3>🔍 Search Proxy MCP</h3>
+      <p>Web search for AI agents via MCP protocol. DuckDuckGo powered, no API key needed. Free tier always.</p>
+      <div class="price">Free</div>
+      <div class="card-footer">
+        <a href="https://github.com/Rumblingb/search-proxy-mcp" class="card-btn card-btn-buy" target="_blank">Get Started</a>
+        <a href="https://github.com/Rumblingb/search-proxy-mcp" class="card-btn card-btn-gh" target="_blank">GitHub</a>
+      </div>
+    </a>
+
+    <a class="product-card" href="https://buy.stripe.com/bJe7sN4Hd5VGgekfrt1oI0o" target="_blank">
+      <span class="badge b-service">API Service</span>
+      <h3>🛡️ Hallucination Guard</h3>
+      <p>Middleware API that verifies agent responses against source context to prevent hallucinations.</p>
+      <div class="price">$99/mo unlimited</div>
+      <div class="card-footer">
+        <a href="https://buy.stripe.com/bJe7sN4Hd5VGgekfrt1oI0o" class="card-btn card-btn-buy" target="_blank">Subscribe</a>
+        <a href="https://github.com/Rumblingb/hallucination-guard" class="card-btn card-btn-gh" target="_blank">GitHub</a>
+      </div>
+    </a>
+
+    <a class="product-card" href="https://rumblingb.github.io/court-records-mcp/" target="_blank">
+      <span class="badge b-mcp">MCP Server</span>
+      <h3>⚖️ Court Records MCP</h3>
+      <p>Search 5M+ US court opinions and dockets via MCP protocol. Free tier + unlimited Pro.</p>
+      <div class="price">Free + $19/mo</div>
+      <div class="card-footer">
+        <a href="https://buy.stripe.com/dRm6oJ4Hd2Jugek0wz1oI0m" class="card-btn card-btn-buy" target="_blank">Subscribe</a>
+        <a href="https://github.com/Rumblingb/court-records-mcp" class="card-btn card-btn-gh" target="_blank">GitHub</a>
+      </div>
+    </a>
+
+    <a class="product-card" href="https://rumblingb.github.io/sec-financial-mcp/" target="_blank">
+      <span class="badge b-mcp">MCP Server</span>
+      <h3>📊 SEC EDGAR MCP</h3>
+      <p>Unlimited access to SEC EDGAR financial data for 10,000+ US public companies via MCP protocol.</p>
+      <div class="price">Free + $19/mo</div>
+      <div class="card-footer">
+        <a href="https://buy.stripe.com/4gM6oJa1xck44vCenp1oI0p" class="card-btn card-btn-buy" target="_blank">Subscribe</a>
+        <a href="https://github.com/Rumblingb/sec-financial-mcp" class="card-btn card-btn-gh" target="_blank">GitHub</a>
+      </div>
+    </a>
+
+  </div>
+  <div style="text-align:center;margin-top:2rem">
+    <a href="https://rumblingb.github.io/agentpay-labs-hub/" class="btn btn-secondary">View All 61 Products →</a>
+  </div>
+</section>
+
+<!-- Highway promo -->
+<div class="highway-promo">
+  <div class="highway-card">
+    <div class="hw-text">
+      <h3>⬡ DRIVE THE <span>AGENTPAY HIGHWAY</span></h3>
+      <p>A 10-mile cyberpunk arcade racer through the governed agent economy. Collect 25 agent tokens, dodge traffic, boost to the finish line. Playable by humans AND AI agents.</p>
+      <div class="hw-btns">
+        <a href="https://rumblingb.github.io/agentpay-highway/" class="btn btn-game" style="font-size:.85rem;padding:.7rem 1.4rem">▶ PLAY NOW</a>
+        <a href="https://github.com/Rumblingb/agentpay-highway" class="btn btn-secondary" style="font-size:.85rem;padding:.7rem 1.4rem">View Source</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="how" class="section">
+  <div class="section-title">
+    <h2>How It Works</h2>
+    <p>Built for the agentic era — everything your AI agents need, governed</p>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="icon">🛂</div>
+      <h4>Agent Identity</h4>
+      <p>Every agent gets a passport — scoped tokens, verified identity, and controlled access to resources.</p>
+    </div>
+    <div class="step">
+      <div class="icon">🔌</div>
+      <h4>MCP Protocol</h4>
+      <p>All tools speak Model Context Protocol — plug directly into Claude, GPT, Cursor, and any MCP-compatible client.</p>
+    </div>
+    <div class="step">
+      <div class="icon">💳</div>
+      <h4>Payment Rails</h4>
+      <p>Built on Stripe — agents can pay for services, set budgets, and get invoices. All governed and auditable.</p>
+    </div>
+    <div class="step">
+      <div class="icon">🔐</div>
+      <h4>Audit Trail</h4>
+      <p>SHA-256 hash chain for every action. Immutable proof of work, verifiable receipts, compliance-ready.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-title">
+    <h2>Browse by Category</h2>
+  </div>
+  <div class="cats">
+    <a href="https://rumblingb.github.io/agentpay-labs-hub/" class="cat"><div class="ci">🤖</div><div class="cn">Agent Core</div><div class="cc">Identity · Wallet · Proof</div></a>
+    <a href="https://rumblingb.github.io/agentpay-labs-hub/" class="cat"><div class="ci">⚖️</div><div class="cn">Legal & Finance</div><div class="cc">Court · SEC · Patents</div></a>
+    <a href="https://rumblingb.github.io/agentpay-labs-hub/" class="cat"><div class="ci">🌐</div><div class="cn">Web & Data</div><div class="cc">Scraper · Search · DNS</div></a>
+    <a href="https://rumblingb.github.io/agentpay-labs-hub/" class="cat"><div class="ci">📧</div><div class="cn">Communications</div><div class="cc">Email · Notifications · SMS</div></a>
+    <a href="https://rumblingb.github.io/agentpay-labs-hub/" class="cat"><div class="ci">🔒</div><div class="cn">Security</div><div class="cc">SSL · Secrets · Content Mod</div></a>
+    <a href="https://rumblingb.github.io/agentpay-labs-hub/" class="cat"><div class="ci">🛠️</div><div class="cn">Dev Utilities</div><div class="cc">PDF · QR · Screenshot</div></a>
+  </div>
+</section>
+
+<footer>
+  <div class="fl">
+    <a href="https://github.com/Rumblingb">GitHub</a>
+    <a href="https://rumblingb.github.io/agentpay-labs-hub/">All Products</a>
+    <a href="https://rumblingb.github.io/agentpay-highway/">Highway Game</a>
+    <a href="https://buy.stripe.com/28E3cxflRabW1jqgvx1oI0s">AgentPassport</a>
+  </div>
+  <p>AgentPay Labs © 2026 — Governed infrastructure for the autonomous agent economy</p>
+</footer>
+
 </body>
 </html>
